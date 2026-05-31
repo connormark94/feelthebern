@@ -1,12 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { useState } from "react";
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Berni Stubbs | Feel the Bern" },
-      { name: "description", content: "Get in touch with Berni Stubbs to book Bern for your wedding, corporate event or private party." },
+      { title: "Contact Bern — Bookings & Enquiries" },
+      { name: "description", content: "Get in touch to book Bern for your wedding, corporate event or private party. Personal reply with availability and tailored ideas." },
     ],
   }),
   component: Contact,
@@ -17,72 +18,105 @@ function Contact() {
 
   return (
     <SiteLayout>
-      <div className="space-y-10">
-        <header>
-          <h2 className="font-display text-4xl sm:text-5xl text-primary">Berni Stubbs</h2>
-          <div className="mt-4 h-px w-24 bg-gradient-to-r from-primary to-transparent" />
-        </header>
-
-        <div className="grid gap-2 text-xl sm:text-2xl">
-          <p>
-            <span className="text-muted-foreground">mobile: </span>
-            <a href="tel:+447790373972" className="text-white hover:text-primary">07790 373972</a>
-          </p>
-          <p className="break-all">
-            <span className="text-muted-foreground">email: </span>
-            <a href="mailto:Bern_uk@hotmail.com" className="text-white hover:text-primary">Bern_uk@hotmail.com</a>
+      <section className="relative" style={{ backgroundImage: "var(--gradient-hero)" }}>
+        <div className="max-w-5xl mx-auto px-5 sm:px-8 pt-20 pb-12 sm:pt-28 sm:pb-16 text-center">
+          <div className="text-xs uppercase tracking-[0.3em] text-primary">Get in touch</div>
+          <h1 className="mt-3 font-display text-5xl sm:text-7xl text-white">
+            Let's <span className="text-gradient">talk music</span>.
+          </h1>
+          <p className="mt-5 font-serif italic text-lg text-white/85 max-w-xl mx-auto">
+            Share a few details about your event and Bern will reply personally
+            with availability and ideas.
           </p>
         </div>
+      </section>
 
-        <form
-          className="space-y-5 rounded-xl border border-border bg-card p-6 sm:p-8"
-          onSubmit={(e) => {
-            e.preventDefault();
-            const form = e.currentTarget as HTMLFormElement;
-            const data = new FormData(form);
-            const subject = encodeURIComponent(`Booking enquiry from ${data.get("name")}`);
-            const body = encodeURIComponent(
-              `Name: ${data.get("name")}\nEmail: ${data.get("email")}\n\n${data.get("comment")}`
-            );
-            window.location.href = `mailto:Bern_uk@hotmail.com?subject=${subject}&body=${body}`;
-            setSent(true);
-          }}
-        >
-          {sent && (
-            <p className="rounded-md bg-primary/15 border border-primary/40 px-4 py-3 text-primary">
-              Thank you for your response. ✨
-            </p>
-          )}
-          <Field name="name" label="Name" required />
-          <Field name="email" label="Email" type="email" required />
-          <Field name="comment" label="Comment" textarea required />
-          <button
-            type="submit"
-            className="inline-flex items-center justify-center rounded-md px-6 py-3 font-semibold text-primary-foreground transition-opacity hover:opacity-90"
-            style={{ backgroundImage: "var(--gradient-accent)" }}
+      <section className="max-w-6xl mx-auto px-5 sm:px-8 py-16 grid lg:grid-cols-5 gap-10">
+        {/* Info column */}
+        <aside className="lg:col-span-2 space-y-4">
+          <InfoCard icon={Phone} label="Call Bern" value="07790 373972" href="tel:+447790373972" />
+          <InfoCard icon={Mail} label="Email" value="Bern_uk@hotmail.com" href="mailto:Bern_uk@hotmail.com" />
+          <InfoCard icon={MapPin} label="Based in" value="United Kingdom — available nationwide" />
+          <InfoCard icon={Clock} label="Reply time" value="Usually within 24 hours" />
+        </aside>
+
+        {/* Form */}
+        <div className="lg:col-span-3">
+          <form
+            className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-5 shadow-xl"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const form = e.currentTarget as HTMLFormElement;
+              const data = new FormData(form);
+              const subject = encodeURIComponent(`Booking enquiry from ${data.get("name")}`);
+              const body = encodeURIComponent(
+                `Name: ${data.get("name")}\nEmail: ${data.get("email")}\nPhone: ${data.get("phone") || "—"}\nEvent type: ${data.get("event") || "—"}\nEvent date: ${data.get("date") || "—"}\n\n${data.get("comment")}`
+              );
+              window.location.href = `mailto:Bern_uk@hotmail.com?subject=${subject}&body=${body}`;
+              setSent(true);
+            }}
           >
-            Submit
-          </button>
-        </form>
-      </div>
+            {sent && (
+              <p className="flex items-center gap-2 rounded-lg bg-primary/15 border border-primary/40 px-4 py-3 text-primary">
+                <CheckCircle2 className="h-5 w-5" /> Thanks — your email client should now open with your message ready to send.
+              </p>
+            )}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Field name="name" label="Your name" required />
+              <Field name="email" label="Email" type="email" required />
+              <Field name="phone" label="Phone (optional)" type="tel" />
+              <Field name="event" label="Event type" placeholder="Wedding, party, corporate…" />
+              <Field name="date" label="Event date" type="date" />
+            </div>
+            <Field name="comment" label="Tell Bern about your event" textarea required />
+            <button
+              type="submit"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-foreground shadow-lg hover:opacity-90 transition-opacity"
+              style={{ backgroundImage: "var(--gradient-accent)" }}
+            >
+              Send enquiry <Send className="h-4 w-4" />
+            </button>
+          </form>
+        </div>
+      </section>
     </SiteLayout>
   );
 }
 
+function InfoCard({
+  icon: Icon, label, value, href,
+}: { icon: React.ComponentType<{ className?: string }>; label: string; value: string; href?: string }) {
+  const inner = (
+    <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-colors hover:border-primary/60">
+      <span
+        className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-primary-foreground"
+        style={{ backgroundImage: "var(--gradient-accent)" }}
+      >
+        <Icon className="h-5 w-5" />
+      </span>
+      <div className="min-w-0">
+        <div className="text-xs uppercase tracking-wider text-muted-foreground">{label}</div>
+        <div className="mt-1 text-white font-medium break-all">{value}</div>
+      </div>
+    </div>
+  );
+  return href ? <a href={href} className="block">{inner}</a> : inner;
+}
+
 function Field({
-  name, label, type = "text", textarea, required,
-}: { name: string; label: string; type?: string; textarea?: boolean; required?: boolean }) {
+  name, label, type = "text", textarea, required, placeholder,
+}: { name: string; label: string; type?: string; textarea?: boolean; required?: boolean; placeholder?: string }) {
   const cls =
-    "w-full rounded-md border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring";
+    "w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground/70 focus:outline-none focus:ring-2 focus:ring-ring focus:border-primary transition-colors";
   return (
-    <label className="block">
-      <span className="mb-1 block text-sm text-muted-foreground">
+    <label className={`block ${textarea ? "sm:col-span-2" : ""}`}>
+      <span className="mb-1.5 block text-sm text-muted-foreground">
         {label}{required && <span className="text-primary"> *</span>}
       </span>
       {textarea ? (
-        <textarea name={name} required={required} rows={5} className={cls} />
+        <textarea name={name} required={required} rows={5} placeholder={placeholder} className={cls} />
       ) : (
-        <input name={name} type={type} required={required} className={cls} />
+        <input name={name} type={type} required={required} placeholder={placeholder} className={cls} />
       )}
     </label>
   );
