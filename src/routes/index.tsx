@@ -4,6 +4,7 @@ import {
   Music2, Heart, Building2, PartyPopper, Mic2, Sparkles,
   Star, ArrowRight, Phone, Play, Quote,
 } from "lucide-react";
+import bernPortrait from "@/assets/bern-portrait.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -51,16 +52,29 @@ function Index() {
   return (
     <SiteLayout>
       {/* HERO */}
-      <section
-        className="relative overflow-hidden"
-        style={{
-          backgroundImage:
-            "linear-gradient(180deg, oklch(0.09 0.03 285 / 0.7), oklch(0.09 0.03 285 / 0.92)), url(/images/bern-hero.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-20 pb-28 sm:pt-32 sm:pb-40 text-center">
+      <section className="relative overflow-hidden">
+        {/* Off-center hero portrait, blends with the global fixed background */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-y-0 -right-[10%] sm:-right-[6%] w-[85%] sm:w-[60%] bg-no-repeat bg-contain opacity-90"
+          style={{
+            backgroundImage: `url(${bernPortrait.url})`,
+            backgroundPosition: "right center",
+            maskImage:
+              "radial-gradient(ellipse at 70% 50%, black 35%, transparent 75%)",
+            WebkitMaskImage:
+              "radial-gradient(ellipse at 70% 50%, black 35%, transparent 75%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(90deg, oklch(0.09 0.03 285 / 0.92) 0%, oklch(0.09 0.03 285 / 0.7) 45%, transparent 75%)",
+          }}
+        />
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-20 pb-28 sm:pt-32 sm:pb-40 text-center sm:text-left">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-white/80">
             <span className="text-gold-gradient">✦</span> Male Vocalist
           </div>
@@ -98,6 +112,51 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {/* SCROLL SHOWCASE — sticky portrait with passing copy */}
+      <section className="relative">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-10 md:gap-16 py-16 sm:py-24">
+          <div className="md:sticky md:top-24 self-start h-[60vh] md:h-[78vh] relative">
+            <div
+              className="absolute inset-0 rounded-3xl border border-border overflow-hidden"
+              style={{
+                backgroundImage: `url(${bernPortrait.url})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center 30%",
+                boxShadow: "var(--shadow-glow)",
+              }}
+            >
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, transparent 40%, oklch(0.09 0.03 285 / 0.85) 100%)",
+                }}
+              />
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="text-xs uppercase tracking-[0.3em] text-primary">Live & in the moment</div>
+                <div className="mt-2 font-display text-3xl sm:text-4xl text-white">Every note, felt.</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-24 sm:space-y-32 pt-6 md:pt-12">
+            {[
+              { kicker: "The Voice", title: "A range that bends to the room.", body: "Soaring tenor moments, smoky low-end balladry, full-blooded rock anthems — all delivered with the same effortless control." },
+              { kicker: "The Set", title: "Curated for your night.", body: "Bern tailors every set list to the venue, the audience and the moment — from cocktail-hour classics to last-dance sing-alongs." },
+              { kicker: "The Feeling", title: "Goosebumps, on cue.", body: "Two decades on stage have taught Bern one thing: it's not just what you sing, it's how you make the room feel when you sing it." },
+            ].map((b) => (
+              <div key={b.kicker}>
+                <div className="text-xs uppercase tracking-[0.3em] text-primary">{b.kicker}</div>
+                <h3 className="mt-3 font-display text-3xl sm:text-5xl text-white leading-tight">{b.title}</h3>
+                <p className="mt-5 font-serif text-lg leading-relaxed text-foreground/85">{b.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
 
       {/* INTRO */}
       <section className="max-w-5xl mx-auto px-5 sm:px-8 py-20 sm:py-28">

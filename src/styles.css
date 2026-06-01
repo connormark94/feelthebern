@@ -81,4 +81,14 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
+  @keyframes bg-float {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-1.5%, 2%, 0) scale(1.03); }
+  }
+  .animate-bg-float {
+    animation: bg-float 18s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-bg-float { animation: none; }
+  }
 }
