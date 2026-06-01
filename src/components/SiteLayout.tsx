@@ -15,8 +15,25 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
 
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="relative min-h-screen flex flex-col bg-background">
+      {/* Global off-center fixed portrait background — persists on all pages */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
+      >
+        <div
+          className="absolute top-[8%] right-[-12%] w-[78vw] max-w-[1100px] aspect-[4/3] bg-no-repeat bg-contain opacity-[0.18] mix-blend-screen blur-[2px] animate-bg-float"
+          style={{
+            backgroundImage: `url(${bernPortrait.url})`,
+            backgroundPosition: "right center",
+            transform: "translateZ(0)",
+          }}
+        />
+        <div className="absolute inset-0" style={{ backgroundImage: "var(--gradient-hero)" }} />
+      </div>
+
       <header className="sticky top-0 left-0 right-0 z-50 glass border-b border-border">
+
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between gap-3">
           <Link to="/" className="flex items-center gap-2 group shrink-0">
             <span className="text-gold-gradient text-xl">✦</span>
