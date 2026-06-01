@@ -25,63 +25,28 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "glass border-b border-border" : "bg-transparent"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
+      <header className="sticky top-0 left-0 right-0 z-50 glass border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between gap-3">
+          <Link to="/" className="flex items-center gap-2 group shrink-0">
             <span className="text-gold-gradient text-xl">✦</span>
-            <span className="font-display text-xl text-white group-hover:text-primary transition-colors">
+            <span className="font-display text-lg sm:text-xl text-white group-hover:text-primary transition-colors whitespace-nowrap">
               Feel the Bern
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1">
-            {nav.map((item) => {
-              const active = pathname === item.to;
-              return (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  className={`px-4 py-2 text-sm tracking-wide rounded-full transition-colors ${
-                    active ? "text-primary bg-primary/10" : "text-white/80 hover:text-primary"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-            <Link
-              to="/contact"
-              className="ml-2 inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold text-primary-foreground shadow-lg hover:opacity-90 transition-opacity"
-              style={{ backgroundImage: "var(--gradient-accent)" }}
-            >
-              Book Bern
-            </Link>
-          </nav>
-
-          <button
-            className="md:hidden p-2 text-white"
-            onClick={() => setOpen((v) => !v)}
-            aria-label="Toggle menu"
-          >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
-
-        {open && (
-          <div className="md:hidden glass border-t border-border">
-            <ul className="px-5 py-4 space-y-1">
+          {/* Top bar nav — visible on all sizes, scrolls horizontally on small screens */}
+          <nav className="flex-1 min-w-0">
+            <ul className="flex items-center justify-end gap-1 overflow-x-auto no-scrollbar">
               {nav.map((item) => {
                 const active = pathname === item.to;
                 return (
-                  <li key={item.to}>
+                  <li key={item.to} className="shrink-0">
                     <Link
                       to={item.to}
-                      className={`block px-4 py-3 rounded-lg ${
-                        active ? "text-primary bg-primary/10" : "text-white/85 hover:bg-muted"
+                      className={`px-3 sm:px-4 py-2 text-sm tracking-wide rounded-full transition-colors whitespace-nowrap ${
+                        active
+                          ? "text-primary bg-primary/10"
+                          : "text-white/80 hover:text-primary"
                       }`}
                     >
                       {item.label}
@@ -89,18 +54,18 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
                   </li>
                 );
               })}
-              <li className="pt-2">
+              <li className="shrink-0 hidden sm:block">
                 <Link
                   to="/contact"
-                  className="block text-center rounded-full px-5 py-3 text-sm font-semibold text-primary-foreground"
+                  className="ml-1 inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground shadow-lg hover:opacity-90 transition-opacity"
                   style={{ backgroundImage: "var(--gradient-accent)" }}
                 >
                   Book Bern
                 </Link>
               </li>
             </ul>
-          </div>
-        )}
+          </nav>
+        </div>
       </header>
 
       <main className="flex-1 pt-16">
