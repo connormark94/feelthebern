@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation } from "@tanstack/react-router";
-import { useEffect, useState, type ReactNode } from "react";
-import { Menu, X, Phone, Mail, Instagram, Facebook } from "lucide-react";
+import type { ReactNode } from "react";
+import { Phone, Mail, Instagram, Facebook } from "lucide-react";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -11,17 +11,7 @@ const nav = [
 
 export function SiteLayout({ children }: { children?: ReactNode }) {
   const { pathname } = useLocation();
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => { setOpen(false); }, [pathname]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
