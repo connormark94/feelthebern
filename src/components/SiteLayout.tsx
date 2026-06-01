@@ -26,14 +26,14 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
 
           {/* Top bar nav — visible on all sizes, scrolls horizontally on small screens */}
           <nav className="flex-1 min-w-0">
-            <ul className="flex items-center justify-end gap-1 overflow-x-auto no-scrollbar">
+            <ul className="flex items-center justify-end gap-0.5 sm:gap-1">
               {nav.map((item) => {
                 const active = pathname === item.to;
                 return (
                   <li key={item.to} className="shrink-0">
                     <Link
                       to={item.to}
-                      className={`px-3 sm:px-4 py-2 text-sm tracking-wide rounded-full transition-colors whitespace-nowrap ${
+                      className={`px-2 sm:px-4 py-2 text-[13px] sm:text-sm tracking-wide rounded-full transition-colors whitespace-nowrap ${
                         active
                           ? "text-primary bg-primary/10"
                           : "text-white/80 hover:text-primary"
@@ -44,7 +44,7 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
                   </li>
                 );
               })}
-              <li className="shrink-0 hidden sm:block">
+              <li className="shrink-0 hidden lg:block">
                 <Link
                   to="/contact"
                   className="ml-1 inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold text-primary-foreground shadow-lg hover:opacity-90 transition-opacity"
