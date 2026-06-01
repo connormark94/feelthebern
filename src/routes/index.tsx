@@ -4,6 +4,7 @@ import {
   Music2, Heart, Building2, PartyPopper, Mic2, Sparkles,
   Star, ArrowRight, Phone, Play, Quote,
 } from "lucide-react";
+import bernPortrait from "@/assets/bern-portrait.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
