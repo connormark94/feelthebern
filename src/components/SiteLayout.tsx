@@ -1,6 +1,7 @@
 import { Link, Outlet, useLocation } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { Phone, Mail, Instagram, Facebook } from "lucide-react";
+import bernPortrait from "@/assets/bern-portrait.png.asset.json";
 
 const nav = [
   { to: "/", label: "Home" },
