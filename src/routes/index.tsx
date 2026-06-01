@@ -74,7 +74,7 @@ function Index() {
               "linear-gradient(90deg, oklch(0.09 0.03 285 / 0.92) 0%, oklch(0.09 0.03 285 / 0.7) 45%, transparent 75%)",
           }}
         />
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-20 pb-28 sm:pt-32 sm:pb-40 text-center">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-20 pb-28 sm:pt-32 sm:pb-40 text-center sm:text-left">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-white/80">
             <span className="text-gold-gradient">✦</span> Male Vocalist
           </div>
