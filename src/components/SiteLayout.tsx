@@ -58,7 +58,7 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
         </div>
       </header>
 
-      <main className="flex-1 pt-16">
+      <main className="flex-1">
         {children ?? <Outlet />}
       </main>
 
