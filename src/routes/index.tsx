@@ -81,7 +81,7 @@ function Index() {
         {/* Off-center hero portrait, blends with the global fixed background */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-y-0 -right-[10%] sm:-right-[6%] w-[85%] sm:w-[60%] bg-no-repeat bg-contain opacity-90"
+          className="pointer-events-none absolute inset-y-0 -right-[22%] sm:-right-[6%] w-[115%] sm:w-[60%] bg-no-repeat bg-contain opacity-65 sm:opacity-90"
           style={{
             backgroundImage: `url(${bernPortrait.url})`,
             backgroundPosition: "right center",
@@ -99,39 +99,39 @@ function Index() {
               "linear-gradient(90deg, oklch(0.09 0.03 285 / 0.92) 0%, oklch(0.09 0.03 285 / 0.7) 45%, transparent 75%)",
           }}
         />
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-20 pb-28 sm:pt-32 sm:pb-40 text-center sm:text-left">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-4 py-1.5 text-xs uppercase tracking-[0.3em] text-white/80">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-14 pb-20 sm:pt-32 sm:pb-40 text-center sm:text-left">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em] text-white/80">
             <span className="text-gold-gradient">✦</span> Male Vocalist
           </div>
-          <h1 className="mt-6 font-display text-6xl sm:text-8xl text-white drop-shadow-2xl">
+          <h1 className="mt-5 sm:mt-6 font-display text-[3.2rem] leading-none min-[380px]:text-6xl sm:text-8xl text-white drop-shadow-2xl">
             Feel the <span className="text-gradient">Bern</span>
           </h1>
-          <p className="mt-6 font-serif italic text-xl sm:text-2xl text-white/90 max-w-2xl mx-auto">
+          <p className="mt-5 sm:mt-6 font-serif italic text-lg leading-7 sm:text-2xl text-white/90 max-w-2xl mx-auto sm:mx-0">
             A touch of class for every occasion — a uniquely wide vocal range,
             shaped to your event.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 sm:mt-10 grid grid-cols-1 min-[380px]:grid-cols-2 sm:flex sm:flex-wrap items-center justify-center sm:justify-start gap-3">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg hover:opacity-90 transition-opacity"
+              className="inline-flex items-center justify-center gap-2 rounded-full px-5 sm:px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg hover:opacity-90 transition-opacity"
               style={{ backgroundImage: "var(--gradient-accent)", boxShadow: "var(--shadow-glow)" }}
             >
               Book Bern <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/listen"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:border-primary hover:text-primary transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white/5 px-5 sm:px-6 py-3 text-sm font-semibold text-white hover:border-primary hover:text-primary transition-colors"
             >
               <Play className="h-4 w-4" /> Listen Now
             </Link>
           </div>
 
           {/* Stats */}
-          <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto">
+          <div className="mt-12 sm:mt-16 grid grid-cols-2 sm:grid-cols-4 gap-x-4 gap-y-6 max-w-3xl mx-auto sm:mx-0">
             {stats.map((s) => (
               <div key={s.label} className="text-center">
                 <div className="font-display text-3xl sm:text-4xl text-gradient">{s.num}</div>
-                <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{s.label}</div>
+                <div className="mt-1 text-[11px] sm:text-xs uppercase tracking-wide text-muted-foreground leading-snug">{s.label}</div>
               </div>
             ))}
           </div>
@@ -141,9 +141,9 @@ function Index() {
       {/* SCROLL SHOWCASE — sticky portrait with passing copy */}
       <section className="relative">
         <div className="max-w-7xl mx-auto px-5 sm:px-8 grid md:grid-cols-2 gap-10 md:gap-16 py-16 sm:py-24">
-          <div className="md:sticky md:top-24 self-start h-[60vh] md:h-[78vh] relative">
+            <div className="md:sticky md:top-24 self-start h-[62vh] max-h-[560px] md:h-[78vh] md:max-h-none relative">
             <div
-              className="absolute inset-0 rounded-3xl border border-border overflow-hidden"
+              className="absolute inset-0 rounded-2xl sm:rounded-3xl border border-border overflow-hidden"
               style={{
                 backgroundImage: `url(${bernPortrait.url})`,
                 backgroundSize: "cover",
@@ -159,8 +159,8 @@ function Index() {
                 }}
               />
               <div className="absolute bottom-6 left-6 right-6">
-                <div className="text-xs uppercase tracking-[0.3em] text-primary">Live & in the moment</div>
-                <div className="mt-2 font-display text-3xl sm:text-4xl text-white">Every note, felt.</div>
+                <div className="text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em] text-primary">Live & in the moment</div>
+                <div className="mt-2 font-display text-3xl sm:text-4xl text-white leading-none">Every note, felt.</div>
               </div>
             </div>
           </div>
@@ -172,8 +172,8 @@ function Index() {
               { kicker: "The Feeling", title: "Goosebumps, on cue.", body: "Two decades on stage have taught Bern one thing: it's not just what you sing, it's how you make the room feel when you sing it." },
             ].map((b) => (
               <div key={b.kicker}>
-                <div className="text-xs uppercase tracking-[0.3em] text-primary">{b.kicker}</div>
-                <h3 className="mt-3 font-display text-3xl sm:text-5xl text-white leading-tight">{b.title}</h3>
+                <div className="text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em] text-primary">{b.kicker}</div>
+                <h3 className="mt-3 font-display text-[2rem] sm:text-5xl text-white leading-tight">{b.title}</h3>
                 <p className="mt-5 font-serif text-lg leading-relaxed text-foreground/85">{b.body}</p>
               </div>
             ))}
@@ -187,8 +187,8 @@ function Index() {
       <section className="max-w-5xl mx-auto px-5 sm:px-8 py-20 sm:py-28">
         <div className="grid md:grid-cols-5 gap-10 items-start">
           <div className="md:col-span-2">
-            <div className="text-xs uppercase tracking-[0.3em] text-primary">Meet Bern</div>
-            <h2 className="mt-3 font-display text-4xl sm:text-5xl text-white">
+            <div className="text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em] text-primary">Meet Bern</div>
+            <h2 className="mt-3 font-display text-[2.35rem] leading-tight sm:text-5xl text-white">
               A voice with <span className="text-gradient">range</span>.
             </h2>
             <div className="mt-5 h-px w-24 bg-gradient-to-r from-primary to-transparent" />
@@ -216,8 +216,8 @@ function Index() {
       <section className="relative" style={{ backgroundImage: "var(--gradient-hero)" }}>
         <div className="max-w-7xl mx-auto px-5 sm:px-8 py-20 sm:py-28">
           <div className="text-center max-w-2xl mx-auto">
-            <div className="text-xs uppercase tracking-[0.3em] text-primary">What Bern Does</div>
-            <h2 className="mt-3 font-display text-4xl sm:text-5xl text-white">
+            <div className="text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em] text-primary">What Bern Does</div>
+            <h2 className="mt-3 font-display text-[2.35rem] leading-tight sm:text-5xl text-white">
               Every occasion, <span className="text-gradient">covered</span>.
             </h2>
             <p className="mt-4 text-muted-foreground">
@@ -247,8 +247,8 @@ function Index() {
       {/* TESTIMONIALS */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 py-20 sm:py-28">
         <div className="text-center max-w-2xl mx-auto">
-          <div className="text-xs uppercase tracking-[0.3em] text-primary">Kind Words</div>
-          <h2 className="mt-3 font-display text-4xl sm:text-5xl text-white">
+          <div className="text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em] text-primary">Kind Words</div>
+          <h2 className="mt-3 font-display text-[2.35rem] leading-tight sm:text-5xl text-white">
             From the people in the room.
           </h2>
         </div>
@@ -278,8 +278,8 @@ function Index() {
       {/* FAQ */}
       <section className="max-w-4xl mx-auto px-5 sm:px-8 py-20 sm:py-24">
         <div className="text-center">
-          <div className="text-xs uppercase tracking-[0.3em] text-primary">Good to know</div>
-          <h2 className="mt-3 font-display text-4xl sm:text-5xl text-white">
+          <div className="text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em] text-primary">Good to know</div>
+          <h2 className="mt-3 font-display text-[2.35rem] leading-tight sm:text-5xl text-white">
             Frequently asked.
           </h2>
         </div>
@@ -299,27 +299,27 @@ function Index() {
       {/* CTA */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 pb-24">
         <div
-          className="relative overflow-hidden rounded-3xl border border-border p-10 sm:p-16 text-center"
+          className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border p-6 sm:p-16 text-center"
           style={{ backgroundImage: "var(--gradient-hero)" }}
         >
           <div className="text-gold-gradient text-3xl">✦</div>
-          <h2 className="mt-4 font-display text-4xl sm:text-6xl text-white">
+          <h2 className="mt-4 font-display text-[2.35rem] leading-tight sm:text-6xl text-white">
             Let's make it <span className="text-gradient">unforgettable</span>.
           </h2>
           <p className="mt-4 font-serif italic text-lg sm:text-xl text-white/85 max-w-xl mx-auto">
             Tell Bern about your event — receive a personal reply with availability and tailored ideas.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-8 grid grid-cols-1 min-[380px]:grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-3">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg"
+              className="inline-flex items-center justify-center gap-2 rounded-full px-5 sm:px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg"
               style={{ backgroundImage: "var(--gradient-accent)" }}
             >
               Send an enquiry <ArrowRight className="h-4 w-4" />
             </Link>
             <a
               href="tel:+447790373972"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:border-primary hover:text-primary transition-colors"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-white/5 px-5 sm:px-6 py-3 text-sm font-semibold text-white hover:border-primary hover:text-primary transition-colors"
             >
               <Phone className="h-4 w-4" /> 07790 373972
             </a>
