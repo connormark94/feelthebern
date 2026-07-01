@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 import { useEffect, useRef, useState } from "react";
-import { Play, Pause, SkipBack, SkipForward, Volume2 } from "lucide-react";
+import { Play, Pause, SkipBack, SkipForward, Volume2, VolumeX, Music2 } from "lucide-react";
+import { Slider } from "@/components/ui/slider";
 
 export const Route = createFileRoute("/listen")({
   head: () => ({
@@ -13,20 +14,20 @@ export const Route = createFileRoute("/listen")({
   component: Listen,
 });
 
-type Track = { title: string; artist: string; src: string };
+type Track = { title: string; artist: string; src: string; genre?: string };
 
 const tracks: Track[] = [
-  { title: "Mr Brightside", artist: "Bern", src: "/audio/mr-brightside.mp3" },
-  { title: "Sex on Fire", artist: "Bern", src: "/audio/sex-on-fire.mp3" },
-  { title: "Time to Say Goodbye", artist: "Bern", src: "/audio/time-to-say-goodbye.mp3" },
-  { title: "I Don't Want to Miss a Thing", artist: "Bern", src: "/audio/i-dont-want-to-miss-a-thing.mp3" },
-  { title: "Love on the Rocks", artist: "Bern", src: "/audio/love-on-the-rocks.mp3" },
-  { title: "God Only Knows", artist: "Bern", src: "/audio/god-only-knows.mp3" },
-  { title: "Bat Out of Hell", artist: "Bern", src: "/audio/bat-out-of-hell.mp3" },
-  { title: "All I Ask of You", artist: "Bern and friend", src: "/audio/berni-friend-all-i-ask-of-you.mp3" },
-  { title: "The Prayer", artist: "Bern and friend", src: "/audio/berni-friend-the-prayer.mp3" },
-  { title: "You Don't Bring Me Flowers Any More", artist: "Bern and friend", src: "/audio/berni-friend-you-dont-bring-me-flowers-any-more.mp3" },
-  { title: "America", artist: "Bern", src: "/audio/america.mp3" },
+  { title: "Mr Brightside", artist: "Bern", src: "/audio/mr-brightside.mp3", genre: "Rock" },
+  { title: "Sex on Fire", artist: "Bern", src: "/audio/sex-on-fire.mp3", genre: "Rock" },
+  { title: "Time to Say Goodbye", artist: "Bern", src: "/audio/time-to-say-goodbye.mp3", genre: "Classical" },
+  { title: "I Don't Want to Miss a Thing", artist: "Bern", src: "/audio/i-dont-want-to-miss-a-thing.mp3", genre: "Ballad" },
+  { title: "Love on the Rocks", artist: "Bern", src: "/audio/love-on-the-rocks.mp3", genre: "Classic" },
+  { title: "God Only Knows", artist: "Bern", src: "/audio/god-only-knows.mp3", genre: "Pop" },
+  { title: "Bat Out of Hell", artist: "Bern", src: "/audio/bat-out-of-hell.mp3", genre: "Rock" },
+  { title: "All I Ask of You", artist: "Bern & friend", src: "/audio/berni-friend-all-i-ask-of-you.mp3", genre: "Duet" },
+  { title: "The Prayer", artist: "Bern & friend", src: "/audio/berni-friend-the-prayer.mp3", genre: "Duet" },
+  { title: "You Don't Bring Me Flowers Any More", artist: "Bern & friend", src: "/audio/berni-friend-you-dont-bring-me-flowers-any-more.mp3", genre: "Duet" },
+  { title: "America", artist: "Bern", src: "/audio/america.mp3", genre: "Classic" },
 ];
 
 const fmt = (s: number) => {
@@ -42,14 +43,15 @@ function Listen() {
   const [time, setTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
+  const [muted, setMuted] = useState(false);
   const shouldPlayRef = useRef(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // When `current` changes, load the new track and play if requested.
   useEffect(() => {
     const el = audioRef.current;
     if (!el) return;
     el.load();
+    setTime(0);
     if (shouldPlayRef.current) {
       const p = el.play();
       if (p && typeof p.catch === "function") p.catch(() => setPlaying(false));
@@ -58,13 +60,17 @@ function Listen() {
 
   useEffect(() => {
     const el = audioRef.current;
-    if (el) el.volume = volume;
-  }, [volume]);
+    if (el) el.volume = muted ? 0 : volume;
+  }, [volume, muted]);
 
   const select = (i: number) => {
     shouldPlayRef.current = true;
     if (i === current) {
-      audioRef.current?.play();
+      const el = audioRef.current;
+      if (el) {
+        if (el.paused) el.play();
+        else el.pause();
+      }
       return;
     }
     setCurrent(i);
@@ -90,42 +96,90 @@ function Listen() {
     setCurrent((c) => (c + 1) % tracks.length);
   };
 
-  const seek = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const seekTo = (v: number) => {
     const el = audioRef.current;
     if (!el) return;
-    const v = Number(e.target.value);
     el.currentTime = v;
     setTime(v);
   };
 
   const track = tracks[current];
-  const pct = duration > 0 ? (time / duration) * 100 : 0;
 
   return (
     <SiteLayout>
       <div className="space-y-10">
         <header>
-          <h2 className="font-display text-4xl sm:text-5xl text-primary">Listen</h2>
+          <p className="text-xs uppercase tracking-[0.3em] text-primary/80">Live recordings</p>
+          <h2 className="font-display text-4xl sm:text-5xl text-primary mt-2">Listen</h2>
           <div className="mt-4 h-px w-24 bg-gradient-to-r from-primary to-transparent" />
           <p className="mt-4 text-muted-foreground max-w-2xl">
-            A selection of tracks Bern performs live. Tap any song to start playing — use the controls to skip, scrub or pause.
+            A selection of tracks Bern performs live — from rock anthems to classical duets.
+            Tap any track to play, or use the controls to skip and scrub through.
           </p>
         </header>
 
         {/* Player */}
         <div
-          className="rounded-2xl border border-border p-6 sm:p-8 shadow-xl"
+          className="rounded-3xl border border-border/60 p-6 sm:p-8 shadow-2xl backdrop-blur-md"
           style={{ backgroundImage: "var(--gradient-hero)" }}
         >
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+            {/* Artwork */}
+            <div
+              className="relative h-24 w-24 sm:h-28 sm:w-28 shrink-0 rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/10"
+              style={{ backgroundImage: "var(--gradient-accent)" }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Music2 className={`h-10 w-10 text-white/90 ${playing ? "animate-pulse" : ""}`} />
+              </div>
+            </div>
+
             <div className="min-w-0 flex-1">
-              <p className="text-xs uppercase tracking-[0.25em] text-primary/80">
-                Now playing · {current + 1} / {tracks.length}
+              <p className="text-[10px] uppercase tracking-[0.3em] text-primary/80">
+                {playing ? "Now Playing" : "Ready"} · {current + 1} / {tracks.length}
               </p>
-              <p className="mt-2 font-display text-2xl sm:text-3xl text-white truncate">
-                "{track.title}"
+              <p className="mt-1.5 font-display text-2xl sm:text-3xl text-white truncate">
+                {track.title}
               </p>
-              <p className="text-muted-foreground italic">{track.artist}</p>
+              <p className="text-muted-foreground italic truncate">
+                {track.artist}{track.genre ? ` · ${track.genre}` : ""}
+              </p>
+            </div>
+          </div>
+
+          {/* Scrubber */}
+          <div className="mt-6">
+            <Slider
+              value={[Math.min(time, duration || 0)]}
+              max={duration || 1}
+              step={0.1}
+              onValueChange={(v) => seekTo(v[0])}
+              aria-label="Seek"
+              className="cursor-pointer"
+            />
+            <div className="mt-2 flex justify-between text-xs text-muted-foreground tabular-nums">
+              <span>{fmt(time)}</span>
+              <span>-{fmt(Math.max(0, (duration || 0) - time))}</span>
+            </div>
+          </div>
+
+          {/* Transport */}
+          <div className="mt-4 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-2 flex-1 max-w-[180px]">
+              <button
+                onClick={() => setMuted((m) => !m)}
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label={muted ? "Unmute" : "Mute"}
+              >
+                {muted || volume === 0 ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+              </button>
+              <Slider
+                value={[muted ? 0 : volume]}
+                max={1}
+                step={0.01}
+                onValueChange={(v) => { setMuted(false); setVolume(v[0]); }}
+                aria-label="Volume"
+              />
             </div>
 
             <div className="flex items-center gap-3 sm:gap-4">
@@ -138,7 +192,7 @@ function Listen() {
               </button>
               <button
                 onClick={toggle}
-                className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full text-primary-foreground shadow-lg transition-transform hover:scale-105"
+                className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full text-primary-foreground shadow-lg transition-transform hover:scale-105 active:scale-95"
                 style={{ backgroundImage: "var(--gradient-accent)" }}
                 aria-label={playing ? "Pause" : "Play"}
               >
@@ -152,45 +206,8 @@ function Listen() {
                 <SkipForward className="h-5 w-5" />
               </button>
             </div>
-          </div>
 
-          {/* Scrubber */}
-          <div className="mt-6">
-            <div className="relative h-2 rounded-full bg-muted overflow-hidden">
-              <div
-                className="absolute inset-y-0 left-0 rounded-full"
-                style={{ width: `${pct}%`, backgroundImage: "var(--gradient-accent)" }}
-              />
-              <input
-                type="range"
-                min={0}
-                max={duration || 0}
-                step={0.1}
-                value={time}
-                onChange={seek}
-                aria-label="Seek"
-                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-              />
-            </div>
-            <div className="mt-2 flex justify-between text-xs text-muted-foreground tabular-nums">
-              <span>{fmt(time)}</span>
-              <span>{fmt(duration)}</span>
-            </div>
-          </div>
-
-          {/* Volume */}
-          <div className="mt-4 flex items-center gap-3 max-w-xs">
-            <Volume2 className="h-4 w-4 text-muted-foreground" />
-            <input
-              type="range"
-              min={0}
-              max={1}
-              step={0.01}
-              value={volume}
-              onChange={(e) => setVolume(Number(e.target.value))}
-              aria-label="Volume"
-              className="flex-1 accent-[color:var(--primary)]"
-            />
+            <div className="flex-1 max-w-[180px] hidden sm:block" />
           </div>
 
           <audio
@@ -210,43 +227,60 @@ function Listen() {
         </div>
 
         {/* Track list */}
-        <ol className="overflow-hidden rounded-xl border border-border bg-card divide-y divide-border">
-          {tracks.map((t, i) => {
-            const active = i === current;
-            return (
-              <li key={t.src}>
-                <button
-                  onClick={() => select(i)}
-                  className={`group flex w-full items-center gap-4 px-5 py-4 text-left transition-colors hover:bg-muted ${
-                    active ? "bg-muted" : ""
-                  }`}
-                >
-                  <span
-                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs tabular-nums transition-colors ${
-                      active
-                        ? "text-primary-foreground"
-                        : "bg-background text-muted-foreground group-hover:text-primary"
+        <div>
+          <div className="flex items-baseline justify-between mb-3">
+            <h3 className="font-display text-xl text-white">Tracklist</h3>
+            <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              {tracks.length} tracks
+            </span>
+          </div>
+          <ol className="overflow-hidden rounded-2xl border border-border bg-card/80 backdrop-blur divide-y divide-border">
+            {tracks.map((t, i) => {
+              const active = i === current;
+              return (
+                <li key={t.src}>
+                  <button
+                    onClick={() => select(i)}
+                    className={`group flex w-full items-center gap-4 px-4 sm:px-5 py-3.5 text-left transition-colors hover:bg-muted/60 ${
+                      active ? "bg-muted/80" : ""
                     }`}
-                    style={active ? { backgroundImage: "var(--gradient-accent)" } : undefined}
                   >
-                    {active && playing ? <Pause className="h-4 w-4" /> : active ? <Play className="h-4 w-4 translate-x-0.5" /> : i + 1}
-                  </span>
-                  <span className="flex-1 min-w-0">
-                    <span className={`block font-medium truncate ${active ? "text-primary" : "text-white"}`}>
-                      "{t.title}"
+                    <span
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs tabular-nums transition-colors ${
+                        active
+                          ? "text-primary-foreground shadow-md"
+                          : "bg-background text-muted-foreground group-hover:text-primary"
+                      }`}
+                      style={active ? { backgroundImage: "var(--gradient-accent)" } : undefined}
+                    >
+                      {active && playing ? (
+                        <Pause className="h-4 w-4" />
+                      ) : active ? (
+                        <Play className="h-4 w-4 translate-x-0.5" />
+                      ) : (
+                        <span className="group-hover:hidden">{String(i + 1).padStart(2, "0")}</span>
+                      )}
+                      {!active && <Play className="h-4 w-4 translate-x-0.5 hidden group-hover:block" />}
                     </span>
-                    <span className="block text-sm text-muted-foreground truncate">{t.artist}</span>
-                  </span>
-                  {active && (
-                    <span className="text-primary text-[10px] uppercase tracking-[0.2em]">
-                      {playing ? "Playing" : "Paused"}
+                    <span className="flex-1 min-w-0">
+                      <span className={`block font-medium truncate ${active ? "text-primary" : "text-white"}`}>
+                        {t.title}
+                      </span>
+                      <span className="block text-sm text-muted-foreground truncate">
+                        {t.artist}{t.genre ? ` · ${t.genre}` : ""}
+                      </span>
                     </span>
-                  )}
-                </button>
-              </li>
-            );
-          })}
-        </ol>
+                    {active && (
+                      <span className="text-primary text-[10px] uppercase tracking-[0.2em] shrink-0">
+                        {playing ? "Playing" : "Paused"}
+                      </span>
+                    )}
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
       </div>
     </SiteLayout>
   );
