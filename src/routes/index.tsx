@@ -9,11 +9,33 @@ import bernPortrait from "@/assets/bern-portrait.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Feel the Bern — Male Vocalist | A Touch of Class for Every Occasion" },
-      { name: "description", content: "Bern is a superb male vocalist with a uniquely wide vocal range, performing at weddings, corporate events, private parties and live music venues across the UK." },
-      { property: "og:title", content: "Feel the Bern — Male Vocalist" },
-      { property: "og:description", content: "A touch of class for every occasion." },
-      { property: "og:image", content: "/images/bern-hero.jpg" },
+      { title: "Feel the Bern — Male Vocalist & Evening Singer for Weddings & Events UK" },
+      { name: "description", content: "Award-winning male vocalist and evening singer for weddings, corporate events and private parties across the UK. Wide vocal range spanning rock, pop, soul, swing and classical crossover." },
+      { name: "keywords", content: "male vocalist, evening singer, evening singing, wedding singer, male wedding vocalist, solo male singer, live vocalist UK, corporate event singer, function singer" },
+      { property: "og:title", content: "Feel the Bern — Male Vocalist & Evening Singer" },
+      { property: "og:description", content: "Book Bern, a professional male vocalist delivering unforgettable evening singing for weddings, corporate events and private parties." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://feelthebern.lovable.app/" },
+      { property: "og:image", content: "https://feelthebern.lovable.app/images/bern-hero.jpg" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Feel the Bern — Male Vocalist & Evening Singer" },
+      { name: "twitter:description", content: "Professional male vocalist for weddings, evening entertainment and corporate events across the UK." },
+      { name: "twitter:image", content: "https://feelthebern.lovable.app/images/bern-hero.jpg" },
+    ],
+    links: [{ rel: "canonical", href: "https://feelthebern.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MusicGroup",
+          name: "Bern — Feel the Bern",
+          url: "https://feelthebern.lovable.app/",
+          genre: ["Pop", "Rock", "Soul", "Swing", "Classical Crossover"],
+          description: "Professional male vocalist and evening singer performing at weddings, corporate events and private parties across the UK.",
+          areaServed: "United Kingdom",
+        }),
+      },
     ],
   }),
   component: Index,
