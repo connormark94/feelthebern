@@ -34,24 +34,24 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
 
       <header className="sticky top-0 left-0 right-0 z-50 glass border-b border-border">
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between gap-3">
-          <Link to="/" className="flex items-center gap-2 group shrink-0">
+        <div className="max-w-7xl mx-auto px-3 sm:px-8 py-2 sm:py-0 min-h-20 sm:h-16 grid gap-1 sm:flex sm:items-center sm:justify-between sm:gap-3">
+          <Link to="/" className="mx-auto sm:mx-0 flex min-w-0 items-center gap-2 group shrink-0">
             <span className="text-gold-gradient text-xl">✦</span>
-            <span className="font-display text-lg sm:text-xl text-white group-hover:text-primary transition-colors whitespace-nowrap">
+            <span className="font-display text-base sm:text-xl text-white group-hover:text-primary transition-colors whitespace-nowrap">
               Feel the Bern
             </span>
           </Link>
 
-          {/* Top bar nav — visible on all sizes, scrolls horizontally on small screens */}
+          {/* Top bar nav — visible on all sizes */}
           <nav className="flex-1 min-w-0">
-            <ul className="flex items-center justify-end gap-0.5 sm:gap-1">
+            <ul className="flex min-w-0 items-center justify-center sm:justify-end gap-0.5 sm:gap-1">
               {nav.map((item) => {
                 const active = pathname === item.to;
                 return (
-                  <li key={item.to} className="shrink-0">
+                  <li key={item.to} className="min-w-0 shrink">
                     <Link
                       to={item.to}
-                      className={`px-2 sm:px-4 py-2 text-[13px] sm:text-sm tracking-wide rounded-full transition-colors whitespace-nowrap ${
+                      className={`block px-2.5 min-[380px]:px-3 sm:px-4 py-1.5 sm:py-2 text-[12px] min-[380px]:text-[13px] sm:text-sm tracking-normal rounded-full transition-colors whitespace-nowrap ${
                         active
                           ? "text-primary bg-primary/10"
                           : "text-white/80 hover:text-primary"
