@@ -57,7 +57,7 @@ function Contact() {
         <aside className="lg:col-span-2 space-y-4">
           <InfoCard icon={Phone} label="Call Bern" value="07790 373972" href="tel:+447790373972" />
           <InfoCard icon={Mail} label="Email" value="Bern_uk@hotmail.com" href="mailto:Bern_uk@hotmail.com" />
-          <InfoCard icon={MapPin} label="Based in" value="United Kingdom — available UK-wide & internationally" />
+          <InfoCard icon={MapPin} label="Based in" value="UK — available worldwide" />
           <InfoCard icon={Clock} label="Reply time" value="Usually within 24 hours" />
         </aside>
 
