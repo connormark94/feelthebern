@@ -6,8 +6,29 @@ import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Bern — Bookings & Enquiries" },
-      { name: "description", content: "Get in touch to book Bern for your wedding, corporate event or private party. Personal reply with availability and tailored ideas." },
+      { title: "Book Bern — Male Vocalist & Evening Singer for Weddings & Events" },
+      { name: "description", content: "Book Bern, a professional male vocalist, for weddings, parties, corporate events and evening entertainment across the UK. Personal reply with availability and tailored ideas." },
+      { name: "keywords", content: "book male vocalist, hire evening singer, wedding singer booking, party singer hire, corporate event vocalist, UK male singer" },
+      { property: "og:title", content: "Book Bern — Male Vocalist & Evening Singer" },
+      { property: "og:description", content: "Enquire about availability for weddings, parties and corporate events across the UK." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://feelthebern.lovable.app/contact" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Book Bern — Male Vocalist & Evening Singer" },
+      { name: "twitter:description", content: "Enquire about booking Bern for your wedding, party or corporate event." },
+    ],
+    links: [{ rel: "canonical", href: "https://feelthebern.lovable.app/contact" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Book Bern — Male Vocalist",
+          url: "https://feelthebern.lovable.app/contact",
+          about: "Booking a professional male vocalist for weddings, parties and corporate events in the UK.",
+        }),
+      },
     ],
   }),
   component: Contact,

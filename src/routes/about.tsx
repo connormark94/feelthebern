@@ -5,8 +5,30 @@ import { Check, ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Bern — A Vocalist for Every Occasion" },
-      { name: "description", content: "Bern's musical journey, vocal versatility and the experiences he brings to weddings, corporate events and live venues." },
+      { title: "About Bern — Experienced Male Vocalist & Evening Singer UK" },
+      { name: "description", content: "Meet Bern — a seasoned male vocalist with 20+ years of evening singing at weddings, parties and corporate events across the UK. Rock, pop, soul, swing and classical crossover." },
+      { name: "keywords", content: "male vocalist, evening singer, wedding singer, tenor vocalist, party singer, live singer UK, professional male singer" },
+      { property: "og:title", content: "About Bern — Male Vocalist & Evening Singer" },
+      { property: "og:description", content: "20+ years performing as a professional male vocalist at weddings, corporate events and private parties across the UK." },
+      { property: "og:type", content: "profile" },
+      { property: "og:url", content: "https://feelthebern.lovable.app/about" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "About Bern — Male Vocalist & Evening Singer" },
+      { name: "twitter:description", content: "Professional male vocalist with two decades of evening singing across the UK." },
+    ],
+    links: [{ rel: "canonical", href: "https://feelthebern.lovable.app/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Bern",
+          jobTitle: "Male Vocalist & Evening Singer",
+          url: "https://feelthebern.lovable.app/about",
+          description: "Professional male vocalist performing at weddings, corporate events and private parties across the UK.",
+        }),
+      },
     ],
   }),
   component: About,
