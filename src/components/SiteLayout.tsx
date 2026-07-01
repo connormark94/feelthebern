@@ -89,7 +89,7 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
             </div>
             <p className="mt-3 text-sm text-muted-foreground max-w-xs">
               A touch of class for every occasion. Live male vocalist for weddings,
-              corporate events and private parties across the UK and beyond.
+              corporate events and private parties across the UK and internationally.
             </p>
           </div>
           <div>

@@ -7,15 +7,15 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Book Bern — Male Vocalist & Evening Singer for Weddings & Events" },
-      { name: "description", content: "Book Bern, a professional male vocalist, for weddings, parties, corporate events and evening entertainment across the UK. Personal reply with availability and tailored ideas." },
-      { name: "keywords", content: "book male vocalist, hire evening singer, wedding singer booking, party singer hire, corporate event vocalist, UK male singer" },
+      { name: "description", content: "Book Bern, a professional male vocalist, for weddings, parties, corporate events and evening entertainment across the UK and internationally. Personal reply with availability and tailored ideas." },
+      { name: "keywords", content: "book male vocalist, hire evening singer, wedding singer booking, party singer hire, corporate event vocalist, UK male singer, international event singer, destination wedding singer" },
       { property: "og:title", content: "Book Bern — Male Vocalist & Evening Singer" },
-      { property: "og:description", content: "Enquire about availability for weddings, parties and corporate events across the UK." },
+      { property: "og:description", content: "Enquire about availability for weddings, parties and corporate events across the UK and internationally." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://feelthebern.lovable.app/contact" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: "Book Bern — Male Vocalist & Evening Singer" },
-      { name: "twitter:description", content: "Enquire about booking Bern for your wedding, party or corporate event." },
+      { name: "twitter:description", content: "Enquire about booking Bern for your wedding, party or corporate event — UK & international." },
     ],
     links: [{ rel: "canonical", href: "https://feelthebern.lovable.app/contact" }],
     scripts: [
@@ -26,7 +26,7 @@ export const Route = createFileRoute("/contact")({
           "@type": "ContactPage",
           name: "Book Bern — Male Vocalist",
           url: "https://feelthebern.lovable.app/contact",
-          about: "Booking a professional male vocalist for weddings, parties and corporate events in the UK.",
+          about: "Booking a professional male vocalist for weddings, parties and corporate events in the UK and internationally.",
         }),
       },
     ],
@@ -57,7 +57,7 @@ function Contact() {
         <aside className="lg:col-span-2 space-y-4">
           <InfoCard icon={Phone} label="Call Bern" value="07790 373972" href="tel:+447790373972" />
           <InfoCard icon={Mail} label="Email" value="Bern_uk@hotmail.com" href="mailto:Bern_uk@hotmail.com" />
-          <InfoCard icon={MapPin} label="Based in" value="United Kingdom — available nationwide" />
+          <InfoCard icon={MapPin} label="Based in" value="United Kingdom — available UK-wide & internationally" />
           <InfoCard icon={Clock} label="Reply time" value="Usually within 24 hours" />
         </aside>
 
