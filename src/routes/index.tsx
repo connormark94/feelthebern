@@ -9,17 +9,17 @@ import bernPortrait from "@/assets/bern-portrait.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Feel the Bern — Male Vocalist & Evening Singer for Weddings & Events UK" },
-      { name: "description", content: "Award-winning male vocalist and evening singer for weddings, corporate events and private parties across the UK. Wide vocal range spanning rock, pop, soul, swing and classical crossover." },
-      { name: "keywords", content: "male vocalist, evening singer, evening singing, wedding singer, male wedding vocalist, solo male singer, live vocalist UK, corporate event singer, function singer" },
+      { title: "Feel the Bern — Male Vocalist & Evening Singer for Weddings & Events UK & International" },
+      { name: "description", content: "Award-winning male vocalist and evening singer for weddings, corporate events and private parties across the UK and internationally. Wide vocal range spanning rock, pop, soul, swing and classical crossover." },
+      { name: "keywords", content: "male vocalist, evening singer, evening singing, wedding singer, male wedding vocalist, solo male singer, live vocalist UK, international wedding singer, corporate event singer, function singer, destination wedding singer" },
       { property: "og:title", content: "Feel the Bern — Male Vocalist & Evening Singer" },
-      { property: "og:description", content: "Book Bern, a professional male vocalist delivering unforgettable evening singing for weddings, corporate events and private parties." },
+      { property: "og:description", content: "Book Bern, a professional male vocalist delivering unforgettable evening singing for weddings, corporate events and private parties across the UK and internationally." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://feelthebern.lovable.app/" },
       { property: "og:image", content: "https://feelthebern.lovable.app/images/bern-hero.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Feel the Bern — Male Vocalist & Evening Singer" },
-      { name: "twitter:description", content: "Professional male vocalist for weddings, evening entertainment and corporate events across the UK." },
+      { name: "twitter:description", content: "Professional male vocalist for weddings, evening entertainment and corporate events across the UK and internationally." },
       { name: "twitter:image", content: "https://feelthebern.lovable.app/images/bern-hero.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://feelthebern.lovable.app/" }],
@@ -32,8 +32,11 @@ export const Route = createFileRoute("/")({
           name: "Bern — Feel the Bern",
           url: "https://feelthebern.lovable.app/",
           genre: ["Pop", "Rock", "Soul", "Swing", "Classical Crossover"],
-          description: "Professional male vocalist and evening singer performing at weddings, corporate events and private parties across the UK.",
-          areaServed: "United Kingdom",
+          description: "Professional male vocalist and evening singer performing at weddings, corporate events and private parties across the UK and internationally.",
+          areaServed: { "@type": "Place", name: "United Kingdom" },
+          additionalProperty: [
+            { "@type": "PropertyValue", name: "internationalBookings", value: "Available worldwide" }
+          ],
         }),
       },
     ],
@@ -64,7 +67,7 @@ const testimonials = [
 ];
 
 const faqs = [
-  { q: "How far will Bern travel?", a: "UK-wide as standard, with international bookings considered on request — Bern has even performed as far afield as Portugal." },
+  { q: "How far will Bern travel?", a: "UK-wide as standard, with international bookings welcomed — Bern has performed as far afield as Portugal and is happy to travel worldwide for your event." },
   { q: "Can Bern learn our special song?", a: "Absolutely. Subject to suitability, special requests are warmly welcomed for first dances and key moments." },
   { q: "Solo or with a band?", a: "Both. Bern performs solo with backing tracks and has worked extensively with bands of every size." },
   { q: "How do we book?", a: "Drop a message through the contact page or call directly — Bern will reply with availability and a tailored quote." },
