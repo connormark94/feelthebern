@@ -7,9 +7,18 @@ import { Slider } from "@/components/ui/slider";
 export const Route = createFileRoute("/listen")({
   head: () => ({
     meta: [
-      { title: "Listen — Feel the Bern" },
-      { name: "description", content: "Listen to Bern singing a selection of tracks across multiple genres." },
+      { title: "Listen — Male Vocalist Demo Tracks | Feel the Bern" },
+      { name: "description", content: "Listen to live demo recordings from Bern — a professional male vocalist and evening singer. Rock, pop, soul, ballads and classical crossover for weddings and events." },
+      { name: "keywords", content: "male vocalist demo, evening singer samples, wedding singer audio, live vocals UK, male singer demo tracks" },
+      { property: "og:title", content: "Listen — Male Vocalist Demo Tracks" },
+      { property: "og:description", content: "Hear live recordings from Bern — professional male vocalist for weddings, parties and evening events." },
+      { property: "og:type", content: "music.playlist" },
+      { property: "og:url", content: "https://feelthebern.lovable.app/listen" },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Listen — Male Vocalist Demo Tracks" },
+      { name: "twitter:description", content: "Live demo recordings from a professional UK male vocalist." },
     ],
+    links: [{ rel: "canonical", href: "https://feelthebern.lovable.app/listen" }],
   }),
   component: Listen,
 });
