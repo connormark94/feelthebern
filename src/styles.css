@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Lily+Script+One&display=swap');
+/* Fonts loaded via <link> tag in src/routes/__root.tsx (Tailwind v4 can't fetch remote @import). */
 
 @theme inline {
   --font-display: 'Lily Script One', cursive;
