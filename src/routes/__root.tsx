@@ -97,7 +97,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "Feel the Bern",
-          url: "https://feelthebern.lovable.app/",
+          url: "https://bernieventsinger.co.uk/",
           description: "Professional male vocalist and evening singer for weddings, parties and corporate events across the UK.",
         }),
       },
