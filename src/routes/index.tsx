@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:description", content: "Professional male vocalist for weddings, evening entertainment and corporate events across the UK and internationally." },
       { name: "twitter:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://feelthebern.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://bernieventsinger.co.uk/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "MusicGroup",
           name: "Bern — Feel the Bern",
-          url: "https://feelthebern.lovable.app/",
+          url: "https://bernieventsinger.co.uk/",
           genre: ["Pop", "Rock", "Soul", "Swing", "Classical Crossover"],
           description: "Professional male vocalist and evening singer performing at weddings, corporate events and private parties across the UK and internationally.",
           areaServed: { "@type": "Place", name: "United Kingdom" },

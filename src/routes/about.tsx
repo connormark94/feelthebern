@@ -21,7 +21,7 @@ export const Route = createFileRoute("/about")({
       { name: "twitter:description", content: "Professional male vocalist with two decades of evening singing across the UK and internationally." },
       { name: "twitter:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://feelthebern.lovable.app/about" }],
+    links: [{ rel: "canonical", href: "https://bernieventsinger.co.uk/about" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/about")({
           "@type": "Person",
           name: "Bern",
           jobTitle: "Male Vocalist & Evening Singer",
-          url: "https://feelthebern.lovable.app/about",
+          url: "https://bernieventsinger.co.uk/about",
           description: "Professional male vocalist performing at weddings, corporate events and private parties across the UK and internationally.",
         }),
       },

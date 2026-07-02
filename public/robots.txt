@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://feelthebern.lovable.app/sitemap.xml
+Sitemap: https://bernieventsinger.co.uk/sitemap.xml

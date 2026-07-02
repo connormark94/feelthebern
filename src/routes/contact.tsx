@@ -22,7 +22,7 @@ export const Route = createFileRoute("/contact")({
       { name: "twitter:description", content: "Enquire about booking Bern for your wedding, party or corporate event — UK & international." },
       { name: "twitter:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://feelthebern.lovable.app/contact" }],
+    links: [{ rel: "canonical", href: "https://bernieventsinger.co.uk/contact" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/contact")({
           "@context": "https://schema.org",
           "@type": "ContactPage",
           name: "Book Bern — Male Vocalist",
-          url: "https://feelthebern.lovable.app/contact",
+          url: "https://bernieventsinger.co.uk/contact",
           about: "Booking a professional male vocalist for weddings, parties and corporate events in the UK and internationally.",
         }),
       },

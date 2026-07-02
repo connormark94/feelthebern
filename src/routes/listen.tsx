@@ -23,7 +23,7 @@ export const Route = createFileRoute("/listen")({
       { name: "twitter:description", content: "Live demo recordings from a professional UK & international male vocalist." },
       { name: "twitter:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
     ],
-    links: [{ rel: "canonical", href: "https://feelthebern.lovable.app/listen" }],
+    links: [{ rel: "canonical", href: "https://bernieventsinger.co.uk/listen" }],
   }),
   component: Listen,
 });
