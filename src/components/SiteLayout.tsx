@@ -114,14 +114,6 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
                 <a href="mailto:Bern_uk@hotmail.com" className="hover:text-primary break-all">Bern_uk@hotmail.com</a>
               </li>
             </ul>
-            <div className="mt-4 flex items-center gap-3">
-              <a href="#" aria-label="Instagram" className="p-2 rounded-full border border-border text-white/80 hover:text-primary hover:border-primary transition-colors">
-                <Instagram className="h-4 w-4" />
-              </a>
-              <a href="#" aria-label="Facebook" className="p-2 rounded-full border border-border text-white/80 hover:text-primary hover:border-primary transition-colors">
-                <Facebook className="h-4 w-4" />
-              </a>
-            </div>
           </div>
         </div>
         <div className="border-t border-border py-6 text-center text-xs text-muted-foreground">
