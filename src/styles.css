@@ -7,7 +7,7 @@
 /* Fonts loaded via <link> tag in src/routes/__root.tsx (Tailwind v4 can't fetch remote @import). */
 
 @theme inline {
-  --font-display: 'Lily Script One', cursive;
+  --font-display: 'Allura', cursive;
   --font-serif: 'Cormorant Garamond', serif;
   --font-sans: 'Inter', system-ui, sans-serif;
   --color-background: var(--background);
