@@ -121,7 +121,7 @@ function Listen() {
 
   return (
     <SiteLayout>
-      <div className="space-y-10">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-10">
         <header>
           <p className="text-xs uppercase tracking-[0.3em] text-primary/80">Live recordings</p>
           <h2 className="font-display text-4xl sm:text-5xl text-primary mt-2">Listen</h2>
