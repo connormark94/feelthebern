@@ -32,7 +32,7 @@ export function SiteLayout({ children }: { children?: ReactNode }) {
         <div className="absolute inset-0" style={{ backgroundImage: "var(--gradient-hero)" }} />
       </div>
 
-      <header className="sticky top-0 left-0 right-0 z-50 glass border-b border-border">
+      <header className="sticky top-0 left-0 right-0 z-50 bg-background/90 supports-[backdrop-filter]:bg-background/75 backdrop-blur-xl border-b border-border shadow-[0_1px_0_0_rgba(255,255,255,0.04)]">
 
         <div className="max-w-7xl mx-auto px-3 sm:px-8 py-2 sm:py-0 min-h-20 sm:h-16 grid gap-1 sm:flex sm:items-center sm:justify-between sm:gap-3">
           <Link to="/" className="mx-auto sm:mx-0 flex min-w-0 items-center gap-2 group shrink-0">
