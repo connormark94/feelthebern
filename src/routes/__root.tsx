@@ -77,6 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "gDSBwFawfBP_NE6G4lvcGAdlluPFGlDH_kxYNYi4Qcs" },
       { title: "Feel the Bern — Male Vocalist & Evening Singer UK" },
       { name: "description", content: "Professional male vocalist and evening singer for weddings, parties and corporate events across the UK." },
       { name: "author", content: "Bern" },
