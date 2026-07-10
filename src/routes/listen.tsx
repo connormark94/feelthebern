@@ -7,9 +7,9 @@ import { Slider } from "@/components/ui/slider";
 export const Route = createFileRoute("/listen")({
   head: () => ({
     meta: [
-      { title: "Listen — Male Vocalist Demo Tracks | Feel the Bern" },
-      { name: "description", content: "Listen to live demo recordings from Bern — a professional male vocalist and evening singer for UK and international weddings and events. Rock, pop, soul, ballads and classical crossover." },
-      { name: "keywords", content: "male vocalist demo, evening singer samples, wedding singer audio, live vocals UK, male singer demo tracks, destination wedding singer demos" },
+      { title: "Wedding Singer Demos — Hear Bern Live" },
+      { name: "description", content: "Listen to live demo tracks from Bern, a professional male wedding vocalist. Rock, pop, soul and classical crossover for UK & destination events." },
+      { name: "keywords", content: "wedding singer demos, male wedding vocalist, evening singer samples, wedding singer audio, live vocals UK, male singer demo tracks, destination wedding singer demos" },
       { property: "og:title", content: "Listen — Male Vocalist Demo Tracks" },
       { property: "og:description", content: "Hear live recordings from Bern — professional male vocalist for weddings, parties and evening events across the UK and internationally." },
       { property: "og:type", content: "music.playlist" },
@@ -124,7 +124,7 @@ function Listen() {
       <div className="max-w-5xl mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-10">
         <header>
           <p className="text-xs uppercase tracking-[0.3em] text-primary/80">Live recordings</p>
-          <h2 className="font-display text-4xl sm:text-5xl text-primary mt-2">Listen</h2>
+          <h1 className="font-display text-4xl sm:text-5xl text-primary mt-2">Wedding Singer Demos — Listen to Bern Live</h1>
           <div className="mt-4 h-px w-24 bg-gradient-to-r from-primary to-transparent" />
           <p className="mt-4 text-muted-foreground max-w-2xl">
             A selection of tracks Bern performs live — from rock anthems to classical duets.
