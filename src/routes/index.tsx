@@ -119,12 +119,12 @@ function Index() {
         />
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-14 pb-20 sm:pt-32 sm:pb-40 text-center sm:text-left">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em] text-white/80">
-            <span className="text-gold-gradient">✦</span> Northwest UK Singer
+            <span className="text-gold-gradient">✦</span> Male Vocalist · Northwest UK Singer
           </div>
           <h1 className="mt-5 sm:mt-6 font-display text-[3.2rem] leading-none min-[380px]:text-6xl sm:text-8xl text-white drop-shadow-2xl">
             Feel the <span className="text-gradient">Bern</span>
             <span className="block mt-2 sm:mt-3 text-lg sm:text-2xl font-serif italic text-white/90 leading-normal">
-              Male Vocalist & Evening Singer — Northwest UK
+              Male Vocalist & Evening Singer — UK & International
             </span>
           </h1>
           <p className="mt-5 sm:mt-6 font-serif italic text-lg leading-7 sm:text-2xl text-white/90 max-w-2xl mx-auto sm:mx-0">

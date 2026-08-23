@@ -7,11 +7,11 @@ import { Slider } from "@/components/ui/slider";
 export const Route = createFileRoute("/listen")({
   head: () => ({
     meta: [
-      { title: "Wedding Singer Demos — Hear Bern Live" },
-      { name: "description", content: "Listen to live demo tracks from Bern, a professional Northwest UK singer and male wedding vocalist. Rock, pop, soul and classical crossover for UK & destination events." },
-      { name: "keywords", content: "northwest uk singer demos, wedding singer demos, male wedding vocalist, evening singer samples, wedding singer audio, live vocals UK, male singer demo tracks, destination wedding singer demos" },
-      { property: "og:title", content: "Wedding Singer Demos — Hear Bern Live" },
-      { property: "og:description", content: "Listen to live demo tracks from Bern, a professional Northwest UK singer and male wedding vocalist. Rock, pop, soul and classical crossover for UK & destination events." },
+      { title: "Male Vocalist Demos — Wedding Singer Bern Live" },
+      { name: "description", content: "Listen to live demo tracks from Bern, a professional male vocalist and wedding singer. Rock, pop, soul and classical crossover for UK & destination events." },
+      { name: "keywords", content: "male vocalist demos, male vocalist, northwest uk singer, wedding singer demos, male wedding vocalist, evening singer samples, wedding singer audio, live vocals UK, male singer demo tracks, destination wedding singer demos" },
+      { property: "og:title", content: "Male Vocalist Demos — Wedding Singer Bern Live" },
+      { property: "og:description", content: "Listen to live demo tracks from Bern, a professional male vocalist and wedding singer. Rock, pop, soul and classical crossover for UK & destination events." },
       { property: "og:type", content: "music.playlist" },
       { property: "og:url", content: "https://bernieventsinger.co.uk/listen" },
       { property: "og:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
@@ -19,8 +19,8 @@ export const Route = createFileRoute("/listen")({
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "Feel the Bern — Male Vocalist & Evening Singer" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Wedding Singer Demos — Hear Bern Live" },
-      { name: "twitter:description", content: "Listen to live demo tracks from Bern, a professional Northwest UK singer and male wedding vocalist. Rock, pop, soul and classical crossover for UK & destination events." },
+      { name: "twitter:title", content: "Male Vocalist Demos — Wedding Singer Bern Live" },
+      { name: "twitter:description", content: "Listen to live demo tracks from Bern, a professional male vocalist and wedding singer. Rock, pop, soul and classical crossover for UK & destination events." },
       { name: "twitter:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://bernieventsinger.co.uk/listen" }],
@@ -30,7 +30,7 @@ export const Route = createFileRoute("/listen")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "MusicPlaylist",
-          name: "Wedding Singer Demos — Bern Live",
+          name: "Male Vocalist Demos — Bern Live",
           url: "https://bernieventsinger.co.uk/listen",
           numTracks: 11,
           track: [
@@ -141,7 +141,7 @@ function Listen() {
       <div className="max-w-5xl mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-10">
         <header>
           <p className="text-xs uppercase tracking-[0.3em] text-primary/80">Live recordings</p>
-          <h1 className="font-display text-4xl sm:text-5xl text-primary mt-2">Wedding Singer Demos — Listen to Bern Live</h1>
+          <h1 className="font-display text-4xl sm:text-5xl text-primary mt-2">Male Vocalist Demos — Listen to Bern Live</h1>
           <div className="mt-4 h-px w-24 bg-gradient-to-r from-primary to-transparent" />
           <p className="mt-4 text-muted-foreground max-w-2xl">
             A selection of tracks Bern performs live — from rock anthems to classical duets.

@@ -49,6 +49,9 @@ function Contact() {
           <div className="text-xs uppercase tracking-[0.3em] text-primary">Get in touch</div>
           <h1 className="mt-3 font-display text-5xl sm:text-7xl text-white">
             Let's <span className="text-gradient">talk music</span>.
+            <span className="block mt-2 text-xl sm:text-2xl font-serif italic text-white/90 leading-normal">
+              Book Male Vocalist Bern for your event
+            </span>
           </h1>
           <p className="mt-5 font-serif italic text-lg text-white/85 max-w-xl mx-auto">
             Share a few details about your event and Bern will reply personally
