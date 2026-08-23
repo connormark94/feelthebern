@@ -9,11 +9,11 @@ import bernPortrait from "@/assets/bern-portrait.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Feel the Bern — Male Vocalist & Evening Singer for Weddings & Events UK & International" },
-      { name: "description", content: "Award-winning male vocalist and evening singer for weddings, corporate events and private parties across the UK and internationally. Wide vocal range spanning rock, pop, soul, swing and classical crossover." },
-      { name: "keywords", content: "male vocalist, evening singer, evening singing, wedding singer, male wedding vocalist, solo male singer, live vocalist UK, international wedding singer, corporate event singer, function singer, destination wedding singer" },
-      { property: "og:title", content: "Feel the Bern — Male Vocalist & Evening Singer" },
-      { property: "og:description", content: "Book Bern, a professional male vocalist delivering unforgettable evening singing for weddings, corporate events and private parties across the UK and internationally." },
+      { title: "Northwest UK Singer | Male Vocalist for Weddings & Events" },
+      { name: "description", content: "Professional Northwest UK singer and male vocalist with 20+ years performing at weddings, parties and corporate events across the UK and internationally." },
+      { name: "keywords", content: "northwest uk singer, north west singer, male vocalist, evening singer, wedding singer, male wedding vocalist, solo male singer, live vocalist UK, international wedding singer, corporate event singer, function singer, destination wedding singer" },
+      { property: "og:title", content: "Northwest UK Singer | Male Vocalist for Weddings & Events" },
+      { property: "og:description", content: "Professional Northwest UK singer and male vocalist with 20+ years performing at weddings, parties and corporate events across the UK and internationally." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://bernieventsinger.co.uk/" },
       { property: "og:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
@@ -23,8 +23,8 @@ export const Route = createFileRoute("/")({
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "Feel the Bern — Male Vocalist & Evening Singer, UK & International" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Feel the Bern — Male Vocalist & Evening Singer" },
-      { name: "twitter:description", content: "Professional male vocalist for weddings, evening entertainment and corporate events across the UK and internationally." },
+      { name: "twitter:title", content: "Northwest UK Singer | Male Vocalist for Weddings & Events" },
+      { name: "twitter:description", content: "Professional Northwest UK singer and male vocalist with 20+ years performing at weddings, parties and corporate events across the UK and internationally." },
       { name: "twitter:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://bernieventsinger.co.uk/" }],
@@ -37,10 +37,23 @@ export const Route = createFileRoute("/")({
           name: "Bern — Feel the Bern",
           url: "https://bernieventsinger.co.uk/",
           genre: ["Pop", "Rock", "Soul", "Swing", "Classical Crossover"],
-          description: "Professional male vocalist and evening singer performing at weddings, corporate events and private parties across the UK and internationally.",
-          areaServed: { "@type": "Place", name: "United Kingdom" },
+          description: "Professional Northwest UK singer and male vocalist performing at weddings, corporate events and private parties across the UK and internationally.",
+          areaServed: { "@type": "Place", name: "Northwest UK" },
           additionalProperty: [
             { "@type": "PropertyValue", name: "internationalBookings", value: "Available worldwide" }
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            { "@type": "Question", name: "How far will Bern travel?", acceptedAnswer: { "@type": "Answer", text: "Based in the Northwest UK, Bern travels UK-wide as standard and welcomes international bookings — including destination weddings and corporate events abroad." } },
+            { "@type": "Question", name: "Can Bern learn our special song?", acceptedAnswer: { "@type": "Answer", text: "Absolutely. Subject to suitability, special requests are warmly welcomed for first dances and key moments." } },
+            { "@type": "Question", name: "Solo or with a band?", acceptedAnswer: { "@type": "Answer", text: "Both. Bern performs solo with backing tracks and has worked extensively with bands of every size." } },
+            { "@type": "Question", name: "How do we book?", acceptedAnswer: { "@type": "Answer", text: "Drop a message through the contact page or call directly — Bern will reply with availability and a tailored quote." } },
           ],
         }),
       },
@@ -106,10 +119,13 @@ function Index() {
         />
         <div className="relative max-w-7xl mx-auto px-5 sm:px-8 pt-14 pb-20 sm:pt-32 sm:pb-40 text-center sm:text-left">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-white/5 px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em] text-white/80">
-            <span className="text-gold-gradient">✦</span> Male Vocalist
+            <span className="text-gold-gradient">✦</span> Northwest UK Singer
           </div>
           <h1 className="mt-5 sm:mt-6 font-display text-[3.2rem] leading-none min-[380px]:text-6xl sm:text-8xl text-white drop-shadow-2xl">
             Feel the <span className="text-gradient">Bern</span>
+            <span className="block mt-2 sm:mt-3 text-lg sm:text-2xl font-serif italic text-white/90 leading-normal">
+              Male Vocalist & Evening Singer — Northwest UK
+            </span>
           </h1>
           <p className="mt-5 sm:mt-6 font-serif italic text-lg leading-7 sm:text-2xl text-white/90 max-w-2xl mx-auto sm:mx-0">
             A touch of class for every occasion — a uniquely wide vocal range,
@@ -178,7 +194,7 @@ function Index() {
             ].map((b) => (
               <div key={b.kicker}>
                 <div className="text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em] text-primary">{b.kicker}</div>
-                <h3 className="mt-3 font-display text-[2rem] sm:text-5xl text-white leading-tight">{b.title}</h3>
+                <h2 className="mt-3 font-display text-[2rem] sm:text-5xl text-white leading-tight">{b.title}</h2>
                 <p className="mt-5 font-serif text-lg leading-relaxed text-foreground/85">{b.body}</p>
               </div>
             ))}
@@ -200,8 +216,9 @@ function Index() {
           </div>
           <div className="md:col-span-3 space-y-5 font-serif text-lg leading-relaxed text-foreground/90">
             <p>
-              Bern is a superb singer with a uniquely wide vocal range. He
-              personalises the set list for any event to accommodate most song
+              Bern is a Northwest UK singer with a uniquely wide vocal range and
+              20+ years performing at weddings, parties and corporate events.
+              He personalises the set list for any occasion to accommodate most song
               requests and musical genres — bringing vocal authenticity to
               everything he sings.
             </p>
@@ -241,7 +258,7 @@ function Index() {
                 >
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-5 font-display text-2xl text-white">{title}</h3>
+                <h2 className="mt-5 font-display text-2xl text-white">{title}</h2>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
               </div>
             ))}

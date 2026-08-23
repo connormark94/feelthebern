@@ -5,11 +5,11 @@ import { Check, ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Bern — Experienced Male Vocalist & Evening Singer UK & International" },
-      { name: "description", content: "Meet Bern — a seasoned male vocalist with 20+ years of evening singing at weddings, parties and corporate events across the UK and internationally. Rock, pop, soul, swing and classical crossover." },
-      { name: "keywords", content: "male vocalist, evening singer, wedding singer, tenor vocalist, party singer, live singer UK, international male singer, professional male singer, destination event singer" },
-      { property: "og:title", content: "About Bern — Male Vocalist & Evening Singer" },
-      { property: "og:description", content: "20+ years performing as a professional male vocalist at weddings, corporate events and private parties across the UK and internationally." },
+      { title: "About Bern — Male Vocalist & UK Wedding Singer" },
+      { name: "description", content: "Meet Bern, a seasoned male vocalist and Northwest UK singer with 20+ years performing at weddings, parties and corporate events across the UK and internationally." },
+      { name: "keywords", content: "northwest uk singer, north west singer, male vocalist, evening singer, wedding singer, tenor vocalist, party singer, live singer UK, international male singer, professional male singer, destination event singer" },
+      { property: "og:title", content: "About Bern — Male Vocalist & UK Wedding Singer" },
+      { property: "og:description", content: "Meet Bern, a seasoned male vocalist and Northwest UK singer with 20+ years performing at weddings, parties and corporate events across the UK and internationally." },
       { property: "og:type", content: "profile" },
       { property: "og:url", content: "https://bernieventsinger.co.uk/about" },
       { property: "og:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
@@ -17,8 +17,8 @@ export const Route = createFileRoute("/about")({
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "Feel the Bern — Male Vocalist & Evening Singer" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "About Bern — Male Vocalist & Evening Singer" },
-      { name: "twitter:description", content: "Professional male vocalist with two decades of evening singing across the UK and internationally." },
+      { name: "twitter:title", content: "About Bern — Male Vocalist & UK Wedding Singer" },
+      { name: "twitter:description", content: "Meet Bern, a seasoned male vocalist and Northwest UK singer with 20+ years performing at weddings, parties and corporate events across the UK and internationally." },
       { name: "twitter:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://bernieventsinger.co.uk/about" }],
@@ -31,7 +31,8 @@ export const Route = createFileRoute("/about")({
           name: "Bern",
           jobTitle: "Male Vocalist & Evening Singer",
           url: "https://bernieventsinger.co.uk/about",
-          description: "Professional male vocalist performing at weddings, corporate events and private parties across the UK and internationally.",
+          description: "Professional Northwest UK singer and male vocalist performing at weddings, corporate events and private parties across the UK and internationally.",
+          homeLocation: { "@type": "Place", name: "Northwest UK" },
         }),
       },
     ],
@@ -43,7 +44,7 @@ const journey = [
   { year: "Early years", title: "Finding the voice", text: "Years spent honing range across rock, pop, soul and classical crossover — learning to read a room before singing a note." },
   { year: "Band years", title: "From covers to tribute", text: "Fronted a 5-piece covers band and a specialised Black Sabbath tribute act — different vocal worlds, same commitment." },
   { year: "Portugal", title: "Tenor abroad", text: "Toured as the tenor for an Andrea Bocelli & Celine Dion tribute duo, sharpening dynamic control and stage presence." },
-  { year: "Today", title: "Tailored events", text: "A trusted vocalist for weddings, corporate galas and private parties across the UK and abroad — setlists built bespoke for each booking, wherever the event takes place." },
+  { year: "Today", title: "Tailored events", text: "Based in the Northwest UK, Bern is a trusted vocalist for weddings, corporate galas and private parties across the UK and abroad — setlists built bespoke for each booking, wherever the event takes place." },
 ];
 
 const offers = [
@@ -64,6 +65,9 @@ function About() {
           <div className="text-xs uppercase tracking-[0.3em] text-primary">About</div>
           <h1 className="mt-3 font-display text-5xl sm:text-7xl text-white">
             Feel the <span className="text-gradient">Bern</span>!
+            <span className="block mt-2 text-xl sm:text-2xl font-serif italic text-white/90 leading-normal">
+              Male Vocalist & Northwest UK Singer
+            </span>
           </h1>
           <p className="mt-6 font-serif italic text-xl text-white/85 max-w-2xl mx-auto">
             From intimate acoustic sets to powerhouse rock anthems and
