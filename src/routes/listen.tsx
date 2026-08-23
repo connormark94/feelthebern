@@ -8,10 +8,10 @@ export const Route = createFileRoute("/listen")({
   head: () => ({
     meta: [
       { title: "Wedding Singer Demos — Hear Bern Live" },
-      { name: "description", content: "Listen to live demo tracks from Bern, a professional male wedding vocalist. Rock, pop, soul and classical crossover for UK & destination events." },
-      { name: "keywords", content: "wedding singer demos, male wedding vocalist, evening singer samples, wedding singer audio, live vocals UK, male singer demo tracks, destination wedding singer demos" },
+      { name: "description", content: "Listen to live demo tracks from Bern, a professional Northwest UK singer and male wedding vocalist. Rock, pop, soul and classical crossover for UK & destination events." },
+      { name: "keywords", content: "northwest uk singer demos, wedding singer demos, male wedding vocalist, evening singer samples, wedding singer audio, live vocals UK, male singer demo tracks, destination wedding singer demos" },
       { property: "og:title", content: "Wedding Singer Demos — Hear Bern Live" },
-      { property: "og:description", content: "Listen to live demo tracks from Bern, a professional male wedding vocalist. Rock, pop, soul and classical crossover for UK & destination events." },
+      { property: "og:description", content: "Listen to live demo tracks from Bern, a professional Northwest UK singer and male wedding vocalist. Rock, pop, soul and classical crossover for UK & destination events." },
       { property: "og:type", content: "music.playlist" },
       { property: "og:url", content: "https://bernieventsinger.co.uk/listen" },
       { property: "og:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
@@ -20,10 +20,27 @@ export const Route = createFileRoute("/listen")({
       { property: "og:image:alt", content: "Feel the Bern — Male Vocalist & Evening Singer" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Wedding Singer Demos — Hear Bern Live" },
-      { name: "twitter:description", content: "Listen to live demo tracks from Bern, a professional male wedding vocalist. Rock, pop, soul and classical crossover for UK & destination events." },
+      { name: "twitter:description", content: "Listen to live demo tracks from Bern, a professional Northwest UK singer and male wedding vocalist. Rock, pop, soul and classical crossover for UK & destination events." },
       { name: "twitter:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://bernieventsinger.co.uk/listen" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "MusicPlaylist",
+          name: "Wedding Singer Demos — Bern Live",
+          url: "https://bernieventsinger.co.uk/listen",
+          numTracks: 11,
+          track: [
+            { "@type": "MusicRecording", name: "Mr Brightside", byArtist: { "@type": "MusicGroup", name: "Bern" }, genre: "Rock" },
+            { "@type": "MusicRecording", name: "Time to Say Goodbye", byArtist: { "@type": "MusicGroup", name: "Bern" }, genre: "Classical" },
+            { "@type": "MusicRecording", name: "Bat Out of Hell", byArtist: { "@type": "MusicGroup", name: "Bern" }, genre: "Rock" },
+          ],
+        }),
+      },
+    ],
   }),
   component: Listen,
 });
