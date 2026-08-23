@@ -141,7 +141,7 @@ function Listen() {
       <div className="max-w-5xl mx-auto px-5 sm:px-8 py-12 sm:py-16 space-y-10">
         <header>
           <p className="text-xs uppercase tracking-[0.3em] text-primary/80">Live recordings</p>
-          <h1 className="font-display text-4xl sm:text-5xl text-primary mt-2">Wedding Singer Demos — Listen to Bern Live</h1>
+          <h1 className="font-display text-4xl sm:text-5xl text-primary mt-2">Male Vocalist Demos — Listen to Bern Live</h1>
           <div className="mt-4 h-px w-24 bg-gradient-to-r from-primary to-transparent" />
           <p className="mt-4 text-muted-foreground max-w-2xl">
             A selection of tracks Bern performs live — from rock anthems to classical duets.
