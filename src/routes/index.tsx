@@ -9,11 +9,11 @@ import bernPortrait from "@/assets/bern-portrait.png.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Feel the Bern — Male Vocalist & Evening Singer for Weddings & Events UK & International" },
-      { name: "description", content: "Award-winning male vocalist and evening singer for weddings, corporate events and private parties across the UK and internationally. Wide vocal range spanning rock, pop, soul, swing and classical crossover." },
-      { name: "keywords", content: "male vocalist, evening singer, evening singing, wedding singer, male wedding vocalist, solo male singer, live vocalist UK, international wedding singer, corporate event singer, function singer, destination wedding singer" },
-      { property: "og:title", content: "Feel the Bern — Male Vocalist & Evening Singer" },
-      { property: "og:description", content: "Book Bern, a professional male vocalist delivering unforgettable evening singing for weddings, corporate events and private parties across the UK and internationally." },
+      { title: "Northwest UK Singer | Male Vocalist for Weddings & Events" },
+      { name: "description", content: "Professional Northwest UK singer and male vocalist with 20+ years performing at weddings, parties and corporate events across the UK and internationally." },
+      { name: "keywords", content: "northwest uk singer, north west singer, male vocalist, evening singer, wedding singer, male wedding vocalist, solo male singer, live vocalist UK, international wedding singer, corporate event singer, function singer, destination wedding singer" },
+      { property: "og:title", content: "Northwest UK Singer | Male Vocalist for Weddings & Events" },
+      { property: "og:description", content: "Professional Northwest UK singer and male vocalist with 20+ years performing at weddings, parties and corporate events across the UK and internationally." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://bernieventsinger.co.uk/" },
       { property: "og:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
@@ -23,8 +23,8 @@ export const Route = createFileRoute("/")({
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "Feel the Bern — Male Vocalist & Evening Singer, UK & International" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Feel the Bern — Male Vocalist & Evening Singer" },
-      { name: "twitter:description", content: "Professional male vocalist for weddings, evening entertainment and corporate events across the UK and internationally." },
+      { name: "twitter:title", content: "Northwest UK Singer | Male Vocalist for Weddings & Events" },
+      { name: "twitter:description", content: "Professional Northwest UK singer and male vocalist with 20+ years performing at weddings, parties and corporate events across the UK and internationally." },
       { name: "twitter:image", content: "https://bernieventsinger.co.uk/__l5e/assets-v1/fec93a53-945a-4043-97f3-3b8db94d8bf0/og-share.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://bernieventsinger.co.uk/" }],
@@ -37,10 +37,23 @@ export const Route = createFileRoute("/")({
           name: "Bern — Feel the Bern",
           url: "https://bernieventsinger.co.uk/",
           genre: ["Pop", "Rock", "Soul", "Swing", "Classical Crossover"],
-          description: "Professional male vocalist and evening singer performing at weddings, corporate events and private parties across the UK and internationally.",
-          areaServed: { "@type": "Place", name: "United Kingdom" },
+          description: "Professional Northwest UK singer and male vocalist performing at weddings, corporate events and private parties across the UK and internationally.",
+          areaServed: { "@type": "Place", name: "Northwest UK" },
           additionalProperty: [
             { "@type": "PropertyValue", name: "internationalBookings", value: "Available worldwide" }
+          ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            { "@type": "Question", name: "How far will Bern travel?", acceptedAnswer: { "@type": "Answer", text: "Based in the Northwest UK, Bern travels UK-wide as standard and welcomes international bookings — including destination weddings and corporate events abroad." } },
+            { "@type": "Question", name: "Can Bern learn our special song?", acceptedAnswer: { "@type": "Answer", text: "Absolutely. Subject to suitability, special requests are warmly welcomed for first dances and key moments." } },
+            { "@type": "Question", name: "Solo or with a band?", acceptedAnswer: { "@type": "Answer", text: "Both. Bern performs solo with backing tracks and has worked extensively with bands of every size." } },
+            { "@type": "Question", name: "How do we book?", acceptedAnswer: { "@type": "Answer", text: "Drop a message through the contact page or call directly — Bern will reply with availability and a tailored quote." } },
           ],
         }),
       },
