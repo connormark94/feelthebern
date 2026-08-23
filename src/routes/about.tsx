@@ -65,6 +65,9 @@ function About() {
           <div className="text-xs uppercase tracking-[0.3em] text-primary">About</div>
           <h1 className="mt-3 font-display text-5xl sm:text-7xl text-white">
             Feel the <span className="text-gradient">Bern</span>!
+            <span className="block mt-2 text-xl sm:text-2xl font-serif italic text-white/90 leading-normal">
+              Male Vocalist & Northwest UK Singer
+            </span>
           </h1>
           <p className="mt-6 font-serif italic text-xl text-white/85 max-w-2xl mx-auto">
             From intimate acoustic sets to powerhouse rock anthems and
