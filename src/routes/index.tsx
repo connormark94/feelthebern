@@ -258,7 +258,7 @@ function Index() {
                 >
                   <Icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-5 font-display text-2xl text-white">{title}</h3>
+                <h2 className="mt-5 font-display text-2xl text-white">{title}</h2>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
               </div>
             ))}
