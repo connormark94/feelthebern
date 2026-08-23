@@ -194,7 +194,7 @@ function Index() {
             ].map((b) => (
               <div key={b.kicker}>
                 <div className="text-[11px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.3em] text-primary">{b.kicker}</div>
-                <h3 className="mt-3 font-display text-[2rem] sm:text-5xl text-white leading-tight">{b.title}</h3>
+                <h2 className="mt-3 font-display text-[2rem] sm:text-5xl text-white leading-tight">{b.title}</h2>
                 <p className="mt-5 font-serif text-lg leading-relaxed text-foreground/85">{b.body}</p>
               </div>
             ))}
