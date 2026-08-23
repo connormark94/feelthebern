@@ -216,8 +216,9 @@ function Index() {
           </div>
           <div className="md:col-span-3 space-y-5 font-serif text-lg leading-relaxed text-foreground/90">
             <p>
-              Bern is a superb singer with a uniquely wide vocal range. He
-              personalises the set list for any event to accommodate most song
+              Bern is a Northwest UK singer with a uniquely wide vocal range and
+              20+ years performing at weddings, parties and corporate events.
+              He personalises the set list for any occasion to accommodate most song
               requests and musical genres — bringing vocal authenticity to
               everything he sings.
             </p>
