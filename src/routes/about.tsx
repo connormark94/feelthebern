@@ -44,7 +44,7 @@ const journey = [
   { year: "Early years", title: "Finding the voice", text: "Years spent honing range across rock, pop, soul and classical crossover — learning to read a room before singing a note." },
   { year: "Band years", title: "From covers to tribute", text: "Fronted a 5-piece covers band and a specialised Black Sabbath tribute act — different vocal worlds, same commitment." },
   { year: "Portugal", title: "Tenor abroad", text: "Toured as the tenor for an Andrea Bocelli & Celine Dion tribute duo, sharpening dynamic control and stage presence." },
-  { year: "Today", title: "Tailored events", text: "A trusted vocalist for weddings, corporate galas and private parties across the UK and abroad — setlists built bespoke for each booking, wherever the event takes place." },
+  { year: "Today", title: "Tailored events", text: "Based in the Northwest UK, Bern is a trusted vocalist for weddings, corporate galas and private parties across the UK and abroad — setlists built bespoke for each booking, wherever the event takes place." },
 ];
 
 const offers = [
