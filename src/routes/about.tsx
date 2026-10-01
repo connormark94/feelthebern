@@ -70,8 +70,8 @@ function About() {
             </span>
           </h1>
           <p className="mt-6 font-serif italic text-xl text-white/85 max-w-2xl mx-auto">
-            From intimate acoustic sets to powerhouse rock anthems and
-            classical crossover — every performance is shaped around the
+            A professional male vocalist with 20+ years on stage — from intimate acoustic sets to
+            powerhouse rock anthems and classical crossover, every performance is shaped around the
             audience and the occasion.
           </p>
         </div>
